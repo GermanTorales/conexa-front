@@ -42,3 +42,27 @@
 .page__button:hover {
   color: #ffffff;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .pages__links {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page__card {
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+  }
+
+  .page__button {
+    font-size: 24px;
+  }
+}
