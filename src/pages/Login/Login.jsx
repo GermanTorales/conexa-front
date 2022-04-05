@@ -26,7 +26,7 @@ const Login = () => {
 
         localStorage.setItem("token", token);
 
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       Swal.fire({
