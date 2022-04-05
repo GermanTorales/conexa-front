@@ -63,17 +63,16 @@
   background-color: #4bb7ff;
 }
 
+.input__container {
+  display: flex;
+  align-items: center;
+}
+
 .password__icon {
   width: 20px;
   height: 20px;
   margin-left: 10px;
   cursor: pointer;
-  margin-top: 50px;
-}
-
-.form__input__icons .password__icon {
-  position: absolute;
-  right: 37%;
 }
 
 .form__input__icons {
@@ -84,4 +83,28 @@
 .form__input__field {
   width: 100%;
   padding: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+  .form__input__icons {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .form__container {
+    width: 100%;
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form__container {
+    padding: 20px;
+  }
 }

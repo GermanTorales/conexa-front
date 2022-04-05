@@ -17,18 +17,20 @@ const LoginView = ({ handleChange, handleSubmit, showPassword, handleShowPasswor
           </div>
           <div className="form__input form__input__icons">
             <label htmlFor="password">Contraseña</label>
-            {showPassword ? (
-              <AiFillEyeInvisible className="password__icon" onClick={handleShowPassword} />
-            ) : (
-              <AiFillEye className="password__icon" onClick={handleShowPassword} />
-            )}
-            <input
-              id="password"
-              type={showPassword ? 'text' : 'password'}
-              placeholder="Ingrese su contraseña"
-              onChange={handleChange}
-              className="form__input__field"
-            />
+            <div className="input__container">
+              <input
+                id="password"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Ingrese su contraseña"
+                onChange={handleChange}
+                className="form__input__field"
+              />
+              {showPassword ? (
+                <AiFillEyeInvisible className="password__icon" onClick={handleShowPassword} />
+              ) : (
+                <AiFillEye className="password__icon" onClick={handleShowPassword} />
+              )}
+            </div>
           </div>
           <div className="form__button">
             <button type="button" onClick={handleSubmit}>
