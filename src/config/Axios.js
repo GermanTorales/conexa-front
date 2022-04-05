@@ -7,7 +7,7 @@ Axios.interceptors.request.use(
     const token = localStorage.getItem('token');
     token ? (config.headers.Authorization = `Bearer ${token}`) : delete config.headers.Authorization;
 
-    config.headers.withCredentials = true;
+    config.headers['Access-Control-Allow-Origin'] = '*';
 
     return config;
   },
