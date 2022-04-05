@@ -84,3 +84,21 @@
   width: 100%;
   height: auto;
 }
+
+@media screen and (max-width: 1280px) {
+  .photo__container {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .photo__container {
+    width: 45%;
+    height: 260px;
+  }
+
+  .card__title {
+    font-size: 14px;
+    text-align: center;
+  }
+}
