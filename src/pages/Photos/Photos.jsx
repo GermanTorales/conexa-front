@@ -9,7 +9,7 @@ const Photos = () => {
   const navigate = useNavigate();
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [pageCount, setPageCount] = useState(10);
+  const pageCount = 10;
   const [currentPage, setCurrentPage] = useState(0);
 
   const handleGoBack = () => navigate('/');
