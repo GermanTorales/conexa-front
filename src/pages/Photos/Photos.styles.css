@@ -12,6 +12,8 @@
   height: 80px;
   margin-top: 50px;
   font-size: 35px;
+  display: flex;
+  align-items: center;
 }
 
 .photos__icon {
@@ -24,6 +26,7 @@
 }
 
 .photos__go__back p {
+  margin: 0;
   margin-left: 15px;
   font-size: 28px;
 }

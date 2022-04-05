@@ -1,17 +1,17 @@
-import React from "react";
-import ReactPaginate from "react-paginate";
-import "./Pagination.styles.css";
+import React from 'react';
+import ReactPaginate from 'react-paginate';
+import './Pagination.styles.css';
 
 const Pagination = ({ handlePageClick, pageCount, currentPage }) => {
   return (
     <ReactPaginate
       breakLabel="..."
-      nextLabel="next >"
+      nextLabel="Siguiente >"
       onPageChange={handlePageClick}
       pageRangeDisplayed={5}
       pageCount={pageCount}
       forcePage={currentPage}
-      previousLabel="< previous"
+      previousLabel="< Anterior"
       renderOnZeroPageCount={null}
       breakClassName="page-item"
       breakLinkClassName="page-link"

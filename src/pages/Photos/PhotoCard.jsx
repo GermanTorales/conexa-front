@@ -1,5 +1,5 @@
-import React from "react";
-import "./Photos.styles.css";
+import React from 'react';
+import './Photos.styles.css';
 
 const PhotoCard = ({ photo }) => {
   return (
@@ -7,7 +7,7 @@ const PhotoCard = ({ photo }) => {
       <div className="photo__card">
         <div className="card__title">
           <p>
-            #{photo.id} {""}
+            #{photo.id} {''}
             {photo.title.substring(0, 18)}...
           </p>
         </div>
