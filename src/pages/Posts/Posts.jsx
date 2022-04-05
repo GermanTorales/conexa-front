@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import Axios from '../../config/Axios';
 import PostsView from './PostsView';
 import { ErrorSwal, InvalidTokenSwal, Pagination, Spinner } from '../../components';
