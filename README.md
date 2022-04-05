@@ -1,33 +1,109 @@
 # Conexa frontend challenge
 
-## Available Scripts
+## Manual Installation
 
-In the project directory, you can run:
+Clone the repo:
 
-### `npm start`
+```bash
+git clone --depth 1 https://github.com/GermanTorales/conexa-front
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+cd conexa-front
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Install the dependencies:
 
-### `npm run build`
+```bash
+npm i
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#or
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Set the environment variables:
 
-### `npm run eject`
+```bash
+# Copy the .env.example on .env
+cp .env.example .env
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# open .env and modify the environment variables (if needed)
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Table of Contents
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [Conexa frontend challenge](#conexa-frontend-challenge)
+  - [Manual Installation](#manual-installation)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Commands](#commands)
+  - [Environment Variables](#environment-variables)
+  - [Project Structure](#project-structure)
+  - [Linting](#linting)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Features
+
+- **Dependency management**: with [npm](https://www.npmjs.com/)
+- **Linting**: with [ESLint](https://eslint.org) and [Prettier](https://prettier.io)
+
+## Commands
+
+Running in production:
+
+```bash
+npm start
+```
+
+Build with babel
+
+```bash
+npm run build
+```
+
+Testing:
+
+```bash
+# run all tests
+npm test
+```
+
+Linting:
+
+```bash
+# run ESLint
+npm lint
+
+# fix ESLint errors
+npm lint:fix
+```
+
+## Environment Variables
+
+The environment variables can be found and modified in the `.env` file. They come with these default values:
+
+```bash
+REACT_APP_BACKEND_URL=http://localhost:3001/api/v1
+```
+
+## Project Structure
+
+```
+|--public\
+|--src\
+    |--components\         # Components
+    |--config\             # Configurations
+    |--pages\              # All pages
+    |--utils\              # Utils funtions
+    |--App.js              # App component
+    |--global.styles.css   # Global styles
+    |--index.js            # React entry point
+```
+
+## Linting
+
+Linting is done using [ESLint](https://eslint.org/) and [Prettier](https://prettier.io).
+
+In this app, ESLint is configured to follow the [Standard JavaScript style guide](https://standardjs.com/) with some modifications. It also extends [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to turn off all rules that are unnecessary or might conflict with Prettier.
+
+To modify the ESLint configuration, update the `.eslintrc.yml` file. To modify the Prettier configuration, update the `.prettierrc` file.
+
+To prevent a certain file or directory from being linted, add it to `.eslintignore` and `.prettierignore`.
