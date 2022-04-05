@@ -8,7 +8,7 @@ const LoginView = ({ handleChange, handleSubmit }) => {
       <div className="form__container">
         <form>
           <div className="form__input">
-            <label for="email">Correo electronico</label>
+            <label htmlFor="email">Correo electronico</label>
             <input
               id="email"
               type="email"
@@ -17,7 +17,7 @@ const LoginView = ({ handleChange, handleSubmit }) => {
             />
           </div>
           <div className="form__input">
-            <label for="password">Contraseña</label>
+            <label htmlFor="password">Contraseña</label>
             <input
               id="password"
               type="password"
