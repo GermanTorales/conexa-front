@@ -22,6 +22,10 @@ const Login = () => {
           icon: "success",
         });
 
+        const { token } = response.data;
+
+        localStorage.setItem("token", token);
+
         navigate("/home");
       }
     } catch (error) {
