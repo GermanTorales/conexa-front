@@ -3,15 +3,20 @@ import ReactPaginate from 'react-paginate';
 import './Pagination.styles.css';
 
 const Pagination = ({ handlePageClick, pageCount, currentPage }) => {
+  const { innerWidth: width } = window;
+  const pageRangeDisplayed = width < 768 ? 1 : 5;
+  const prevText = width < 768 ? '<' : 'Anterior';
+  const nextText = width < 768 ? '>' : 'Siguiente';
+
   return (
     <ReactPaginate
       breakLabel="..."
-      nextLabel="Siguiente >"
+      nextLabel={nextText}
       onPageChange={handlePageClick}
-      pageRangeDisplayed={5}
+      pageRangeDisplayed={pageRangeDisplayed}
       pageCount={pageCount}
       forcePage={currentPage}
-      previousLabel="< Anterior"
+      previousLabel={prevText}
       renderOnZeroPageCount={null}
       breakClassName="page-item"
       breakLinkClassName="page-link"
