@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Axios from '../../config/Axios';
-import PostsView from './PostsView';
+import PhotosView from './PhotosView';
 import { Pagination, Spinner } from '../../components';
 
-const Posts = () => {
+const Photos = () => {
   const navigate = useNavigate();
-  const [posts, setPosts] = useState([]);
+  const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pageCount, setPageCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
@@ -17,25 +17,25 @@ const Posts = () => {
   const handlePageClick = async event => {
     const { selected } = event;
 
-    await handleGetPosts(selected);
+    await handleGetPhotos(selected);
   };
 
-  const handleGetPosts = async (page = 0) => {
+  const handleGetPhotos = async (page = 0) => {
     setLoading(true);
 
     try {
-      const response = await Axios.get(`/jsonplaceholder/posts/?page=${page}`);
+      const response = await Axios.get(`/jsonplaceholder/photos/?page=${page}`);
 
       if (response.status < 400) {
         const { data, current } = response.data;
 
-        setPosts(data);
+        setPhotos(data);
         setCurrentPage(current);
       }
     } catch (error) {
       Swal.fire({
         title: 'Lo siento',
-        text: 'No se pudo obtener los posts',
+        text: 'No se pudo obtener los fotos',
         icon: 'error',
       });
 
@@ -46,7 +46,7 @@ const Posts = () => {
   };
 
   useEffect(() => {
-    const fn = async () => await handleGetPosts();
+    const fn = async () => await handleGetPhotos();
 
     fn();
   }, []);
@@ -55,7 +55,7 @@ const Posts = () => {
 
   return (
     <>
-      <PostsView posts={posts} pageCount={pageCount} handleGoBack={handleGoBack} handlePageClick={handlePageClick} />
+      <PhotosView photos={photos} pageCount={pageCount} handleGoBack={handleGoBack} handlePageClick={handlePageClick} />
       <div className="posts__pagination">
         <Pagination currentPage={currentPage} pageCount={pageCount} handlePageClick={handlePageClick} />
       </div>
@@ -63,4 +63,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default Photos;
