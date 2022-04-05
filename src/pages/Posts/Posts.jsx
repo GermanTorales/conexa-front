@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Axios from '../../config/Axios';
 import PostsView from './PostsView';
-import { Pagination, Spinner } from '../../components';
+import { ErrorSwal, InvalidTokenSwal, Pagination, Spinner } from '../../components';
 
 const Posts = () => {
   const navigate = useNavigate();
@@ -33,13 +33,12 @@ const Posts = () => {
         setCurrentPage(current);
       }
     } catch (error) {
-      Swal.fire({
-        title: 'Lo siento',
-        text: 'No se pudo obtener los posts',
-        icon: 'error',
-      });
-
-      if (error?.response?.status === 401) navigate('/login');
+      if (error?.response?.status === 401) {
+        InvalidTokenSwal();
+        navigate('/login');
+      } else {
+        ErrorSwal();
+      }
     }
 
     setLoading(false);
