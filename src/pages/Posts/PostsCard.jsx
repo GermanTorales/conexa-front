@@ -10,7 +10,10 @@ const PostsCard = ({ post }) => {
     <div className="post__container" style={{ backgroundColor: bgColor, color: fontColor }}>
       <div className="post__card">
         <div className="card__title">
-          <p>{post.title.substring(0, 25)}...</p>
+          <p>
+            #{post.id} {""}
+            {post.title.substring(0, 20)}...
+          </p>
         </div>
         <div className="card__content">
           <p>{post.body}</p>

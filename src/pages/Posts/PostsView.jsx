@@ -3,9 +3,9 @@ import PostsCard from "./PostsCard";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import "./Posts.styles.css";
 
-const PostsView = ({ posts, handleGoBack }) => {
+const PostsView = ({ posts, handleGoBack, handlePageClick, pageCount }) => {
   return (
-    <div className="container">
+    <div className="main__container">
       <div className="posts__go__back">
         <div className="posts__icon">
           <FaArrowAltCircleLeft onClick={handleGoBack} />

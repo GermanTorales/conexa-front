@@ -4,24 +4,34 @@ import Swal from "sweetalert2";
 import { Spinner } from "../../components";
 import Axios from "../../config/Axios";
 import PostsView from "./PostsView";
+import { Pagination } from "../../components";
 
 const Posts = () => {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [pageCount, setPageCount] = useState(10);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const handleGoBack = () => navigate("/");
 
-  const handleGetPosts = async () => {
+  const handlePageClick = async (event) => {
+    const { selected } = event;
+
+    await handleGetPosts(selected);
+  };
+
+  const handleGetPosts = async (page = 0) => {
     setLoading(true);
 
     try {
-      const response = await Axios.get("/jsonplaceholder/posts");
+      const response = await Axios.get(`/jsonplaceholder/posts/?page=${page}`);
 
       if (response.status < 400) {
-        const { data, prev, next, current } = response.data;
+        const { data, current } = response.data;
 
         setPosts(data);
+        setCurrentPage(current);
       }
     } catch (error) {
       Swal.fire({
@@ -44,7 +54,23 @@ const Posts = () => {
 
   if (loading) return <Spinner />;
 
-  return <PostsView posts={posts} handleGoBack={handleGoBack} />;
+  return (
+    <>
+      <PostsView
+        posts={posts}
+        pageCount={pageCount}
+        handleGoBack={handleGoBack}
+        handlePageClick={handlePageClick}
+      />
+      <div className="posts__pagination">
+        <Pagination
+          currentPage={currentPage}
+          pageCount={pageCount}
+          handlePageClick={handlePageClick}
+        />
+      </div>
+    </>
+  );
 };
 
 export default Posts;
