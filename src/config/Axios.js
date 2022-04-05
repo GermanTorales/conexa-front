@@ -5,9 +5,9 @@ const Axios = axios.create({ baseURL });
 Axios.interceptors.request.use(
   config => {
     const token = localStorage.getItem('token');
-    token
-      ? (config.headers.Authorization = `Bearer ${token}`)
-      : delete config.headers.Authorization;
+    token ? (config.headers.Authorization = `Bearer ${token}`) : delete config.headers.Authorization;
+
+    config.headers.withCredentials = true;
 
     return config;
   },
