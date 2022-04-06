@@ -59,13 +59,6 @@ Build with babel
 npm run build
 ```
 
-Testing:
-
-```bash
-# run all tests
-npm test
-```
-
 Linting:
 
 ```bash
@@ -92,7 +85,7 @@ REACT_APP_BACKEND_URL=http://localhost:3001/api/v1
     |--components\         # Components
     |--config\             # Configurations
     |--pages\              # All pages
-    |--utils\              # Utils funtions
+    |--utils\              # Utils functions
     |--App.js              # App component
     |--global.styles.css   # Global styles
     |--index.js            # React entry point
